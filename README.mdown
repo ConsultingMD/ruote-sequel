@@ -84,15 +84,17 @@ assuming you have
 
 * unit tests :
 
-get into ruote/ and do
+get into ruote/ and do something like:
 
-    $ ruby test/unit/storage.rb -- --sequel
+    $ RUOTE_STORAGE=sequel RUOTE_STORAGE_DB=mysql2://root@localhost/ruote_test ruby test/unit/storage.rb
+
+see ruote-sequel/test/connection.rb for other fun environment variables and connector setups.
 
 * functional tests :
 
 get into ruote/ and do
 
-    $ ruby test/functional/test.rb -- --sequel
+    $ RUOTE_STORAGE=sequel RUOTE_STORAGE_DB=mysql2://root@localhost/ruote_test ruby test/functional/test.rb
 
 
 ## license
