@@ -54,7 +54,6 @@ module Sequel
       Timestamp :at, :null => true, :default => nil
       String :owner
       DateTime :due_at
-      DateTime :at
       String :task, :size => 20
 
       primary_key [ :typ, :ide, :rev ]
@@ -391,7 +390,6 @@ module Sequel
           :doc => (Rufus::Json.encode(doc) || ''),
           :wfid => (extract_wfid(doc) || ''),
           :participant_name => (doc['participant_name'] || ''),
-          :at => extract_at(doc),
           :owner => doc['owner'],
           :due_at => extract_due_at(doc),
           :task => extract_task_name(doc),
@@ -426,11 +424,7 @@ module Sequel
     end
 
     def extract_at(doc)
-      at = try_get(doc, 'at')
-      if at
-        at = at.to_time.utc
-      end
-      at
+      try_get(doc, 'at')
     end
 
     def extract_task_name(doc)
