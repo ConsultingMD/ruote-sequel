@@ -401,7 +401,6 @@ module Sequel
           :doc => :$doc,
           :wfid => :$wfid,
           :participant_name => :$participant_name,
-          :at => :$at,
           :owner => :$owner,
           :due_at => :$due_at,
           :task => :$task,
